@@ -1,0 +1,59 @@
+{
+  "icons": [
+    {
+      "src": "./assets/icons/icon_512x512.e3206934ea16ff891eaa159d33b11f32.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_384x384.964b6b80fac77274fe5d4efd027c32a6.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_256x256.2e9040b1b845301658acdb62861a2040.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_192x192.24850d4e92b3088a72097ffcd1451aa4.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_128x128.e18233e9321a59529f6be3016bd8e8e6.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_96x96.5eaccdd12fa3d3494565a26d90f14b90.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_72x72.bb60152ac275aed3211cbf5d733aeb69.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon_180x180.3dad1ed17b6207f669a329e0a46cc400.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "name": "Resto Radar",
+  "short_name": "Resto Radar",
+  "orientation": "any",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "description": "Aplikasi katalog restoran",
+  "background_color": "#f3f4f6",
+  "theme_color": "#1E6F5C"
+}
