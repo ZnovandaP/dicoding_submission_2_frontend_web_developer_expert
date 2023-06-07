@@ -1,7 +1,7 @@
 import { precacheAndRoute } from 'workbox-precaching';
 import { clientsClaim, setCacheNameDetails, cacheNames } from 'workbox-core';
 import { registerRoute } from 'workbox-routing';
-import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { NetworkFirst, CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import CONFIG from './global/config';
@@ -30,16 +30,6 @@ precacheAndRoute(self.__WB_MANIFEST, { ignoreURLParametersMatching: [/.*/] });
 registerRoute(
   ({ url, request }) => url.origin === API_BASE_URL && request.destination !== 'image',
   new NetworkFirst({ cacheName: API_CACHE_NAME }),
-);
-
-registerRoute(
-  /^https:\/\/restaurant-api.dicoding.dev\//,
-  new StaleWhileRevalidate({
-    cacheName: 'staleWhileRevalidate-cache',
-    plugins: [
-      new CacheableResponsePlugin({ statuses: [200] }),
-    ],
-  }),
 );
 
 registerRoute(

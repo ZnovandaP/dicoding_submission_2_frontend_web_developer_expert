@@ -14,6 +14,7 @@ class Navbar extends HTMLElement {
     this._humButtonClickHandler();
     this._navbarActiveScrollHandler();
     this._navLinkActiveClickHandler();
+    this._goToMainContent();
   }
 
   _render() {
@@ -127,6 +128,19 @@ class Navbar extends HTMLElement {
   _resetActiveNavLink(navLinks) {
     navLinks.forEach((link) => {
       link.classList.remove('active');
+    });
+  }
+
+  _goToMainContent() {
+    getElement('.skip-content').addEventListener('click', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      const main = getElement('#main');
+
+      if (main) {
+        main.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   }
 }
