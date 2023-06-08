@@ -18,6 +18,7 @@ const homePage = {
 
   async _afterRender() {
     const cardContainer = getElement('.card-container');
+    loadingCardSkeleton(cardContainer);
     try {
       const restaurants = await RestaurantResource.getAllDataRestaurant();
       loadingCardSkeleton(cardContainer);

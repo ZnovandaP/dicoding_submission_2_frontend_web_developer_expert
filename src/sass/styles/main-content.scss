@@ -15,6 +15,7 @@ main {
     padding: 2rem 1rem;
     min-height: 640px;
     background-color: map-get(colors.$colors, "primary");
+    scroll-padding-top: 10rem;
     // breakpoints
     @include breakpoints.breakpoints("sm") {
       @include placement.flex-layout(column, center, center, 1rem);

@@ -16,7 +16,9 @@ const detailPage = {
     <button type="button" class="button-like-detail" title="Tambahkan ke favorit">
       <i class="fa-regular fa-heart heart-icon" aria-label="Icon Hati"></i>
     </button>
-      <section class="container"></section>
+      <section class="container">
+        ${templateAnimation.skeletonDetail()}
+      </section>
     `;
   },
 

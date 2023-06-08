@@ -14,14 +14,12 @@ class Navbar extends HTMLElement {
     this._humButtonClickHandler();
     this._navbarActiveScrollHandler();
     this._navLinkActiveClickHandler();
-    this._goToMainContent();
   }
 
   _render() {
     this.innerHTML = `
       <nav class="navbar">
         <section class="logo">
-          <a href="#main" class="skip-content" tabindex="1">Skip to content</a>
           <img src="./images/logo/logo.png" alt="Logo perusahaan Resto Radar" />
           <h1>Resto Radar</h1>
         </section>
@@ -128,19 +126,6 @@ class Navbar extends HTMLElement {
   _resetActiveNavLink(navLinks) {
     navLinks.forEach((link) => {
       link.classList.remove('active');
-    });
-  }
-
-  _goToMainContent() {
-    getElement('.skip-content').addEventListener('click', (event) => {
-      event.stopPropagation();
-      event.preventDefault();
-
-      const main = getElement('#main');
-
-      if (main) {
-        main.scrollIntoView({ behavior: 'smooth' });
-      }
     });
   }
 }

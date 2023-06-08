@@ -59,36 +59,6 @@ header {
         margin-left: 3rem;
       }
 
-      a.skip-content {
-        @include touch-target.base-link();
-        @include placement.flex-layout(row, center, center, 0);
-        @include text.paragraph-text(
-          1rem,
-          600,
-          map-get(colors.$colors, "text-white")
-        );
-        background-color: map-get(colors.$colors, "secondary");
-        border-radius: 1.5rem;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        z-index: -10;
-        scale: 0;
-        width: 100%;
-        transform: translateY(-50%);
-        padding: 0 10px;
-        @include shadow.box-shadow(
-          "md",
-          map-get(colors.$colors, "text-regular")
-        );
-        transition: all 0.3s ease-in-out;
-      }
-
-      a.skip-content:focus {
-        scale: 1;
-        z-index: 10;
-      }
-
       img {
         width: 35px;
         height: 35px;
@@ -266,6 +236,47 @@ header {
     position: relative;
     height: 100vh;
     width: 100%;
+
+    a.skip-content {
+      @include touch-target.base-link();
+      @include touch-target.base-button();
+      @include placement.flex-layout(row, center, center, 0);
+      @include text.paragraph-text(
+        1rem,
+        600,
+        map-get(colors.$colors, "text-white")
+      );
+      background-color: map-get(colors.$colors, "secondary");
+      border-radius: 1.5rem;
+      position: absolute;
+      top: 5rem;
+      left: 1rem;
+      z-index: -10;
+      opacity: 0;
+      width: 65%;
+      padding: 0 10px;
+      @include shadow.box-shadow("md", map-get(colors.$colors, "text-regular"));
+      transition: all 0.3s ease-in-out;
+      // breakpoints
+      @include breakpoints.breakpoints("sm") {
+        width: 45%;
+      }
+      @include breakpoints.breakpoints("md") {
+        width: 40%;
+      }
+      @include breakpoints.breakpoints("lg") {
+        width: 25%;
+      }
+      @include breakpoints.breakpoints("xl") {
+        width: 20%;
+      }
+    }
+
+    a.skip-content:focus {
+      opacity: 1;
+      z-index: 10;
+      border: 2px solid map-get(colors.$colors, "fourth");
+    }
 
     .hero-image {
       @include text.paragraph-text(
