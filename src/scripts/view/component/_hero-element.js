@@ -16,7 +16,7 @@ class HeroElement extends HTMLElement {
   _render() {
     this.innerHTML = `
       <section class="hero">
-        <a href="#main" class="skip-content" tabindex="1">Skip to content</a>
+        <button type="button" class="skip-content" tabindex="1">Skip to content</button>
         <img
           src="./images/heros/hero-image_2.jpg"
           alt="Berbagai macam makanan di atas meja"
@@ -26,7 +26,7 @@ class HeroElement extends HTMLElement {
         <div class="overlay">
           <h2>Resto Radar</h2>
           <h3>Beragam Pilihan Restoran Terbaik Hanya di Satu Platform.</h3>
-          <a href="#prologue" id="button-prologue" class="button">Pendahuluan</a>
+          <button type="button" id="button-prologue" class="button">Pendahuluan</button>
         </div>
       </section>
     `;
@@ -50,10 +50,10 @@ class HeroElement extends HTMLElement {
       event.stopPropagation();
       event.preventDefault();
 
-      const main = getElement('.content');
+      const mainContent = getElement('#main-content');
+      mainContent.focus();
 
-      const targetPosition = main.offsetTop - 50;
-
+      const targetPosition = mainContent.offsetTop - 50;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth',

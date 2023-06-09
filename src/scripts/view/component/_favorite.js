@@ -10,7 +10,7 @@ class FavoriteContent extends HTMLElement {
 
   _render() {
     this.innerHTML = `
-      <section class="content-favorite">
+      <section class="content-favorite" tabindex="0">
         <div class="title">
           <h2 class="title-content-favorite">Daftar Restoran Favorite</h2>
         </div>

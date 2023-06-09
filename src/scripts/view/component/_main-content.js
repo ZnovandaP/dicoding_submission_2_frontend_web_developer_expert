@@ -10,7 +10,7 @@ class MainContent extends HTMLElement {
 
   _render() {
     this.innerHTML = `
-      <section class="content">
+      <section id="main-content" class="content"  tabindex="0">
         <div class="title">
           <h2>Daftar Restoran</h2>
         </div>

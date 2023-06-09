@@ -9,6 +9,10 @@
 @use "../component/button";
 
 main {
+  .content-favorite:focus > .title>h2 {
+    color: map-get(colors.$colors, "fourth");
+    text-decoration: underline;
+  }
   section.content-favorite {
     @include placement.flex-layout(column, flex-start, center, 1rem);
     min-height: 640px;
