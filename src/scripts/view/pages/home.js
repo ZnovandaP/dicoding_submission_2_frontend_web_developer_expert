@@ -5,6 +5,7 @@ import CardEventHandler from '../../utilities/card-event-handler';
 import showAlertAndToast from '../../utilities/show-alert';
 import FavoriteButtonHandlerHome from '../../utilities/favorite-button-home-handler';
 import loadingCardSkeleton from '../../utilities/loading-home';
+import skipToMainContent from '../../utilities/skip-content-handler';
 
 const { getElement, getElementAll } = element;
 const homePage = {
@@ -17,12 +18,17 @@ const homePage = {
   },
 
   async _afterRender() {
+    skipToMainContent(
+      getElement('.skip-content.home'),
+      getElement('#main-content'),
+    );
+
     const cardContainer = getElement('.card-container');
     loadingCardSkeleton(cardContainer);
+
     try {
       const restaurants = await RestaurantResource.getAllDataRestaurant();
       loadingCardSkeleton(cardContainer);
-
       setTimeout(() => {
         this._renderCardItem(cardContainer, restaurants);
       }, 250);

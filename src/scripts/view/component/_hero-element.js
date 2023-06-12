@@ -1,4 +1,5 @@
 import element from '../../utilities/get-element';
+import skipToMainContent from '../../utilities/skip-content-handler';
 
 const { getElement, getElementAll } = element;
 class HeroElement extends HTMLElement {
@@ -10,13 +11,12 @@ class HeroElement extends HTMLElement {
   connectedCallback() {
     this._render();
     this._goToPrologue();
-    this._goToMainContent();
   }
 
   _render() {
     this.innerHTML = `
       <section class="hero">
-        <button type="button" class="skip-content" tabindex="1">Skip to content</button>
+        <button type="button" class="skip-content home" tabindex="1">Skip to content</button>
         <img
           src="./images/heros/hero-image_2.jpg"
           alt="Berbagai macam makanan di atas meja"
@@ -42,22 +42,6 @@ class HeroElement extends HTMLElement {
       if (prologue) {
         prologue.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  }
-
-  _goToMainContent() {
-    getElement('.skip-content').addEventListener('click', (event) => {
-      event.stopPropagation();
-      event.preventDefault();
-
-      const mainContent = getElement('#main-content');
-      mainContent.focus();
-
-      const targetPosition = mainContent.offsetTop - 50;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth',
-      });
     });
   }
 }
