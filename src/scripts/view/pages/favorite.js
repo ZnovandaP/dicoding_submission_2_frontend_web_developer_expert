@@ -13,6 +13,7 @@ const { getAllFavoriteRestaurants } = favoriteRestaurantIDB;
 const favoritePage = {
   _render() {
     return `
+    <button type="button" class="skip-content favorite" tabindex="1">Skip to content</button>
     <favorite-content></favorite-content>
     <modal-element></modal-element>
     `;

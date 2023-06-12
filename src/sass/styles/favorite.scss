@@ -9,10 +9,52 @@
 @use "../component/button";
 
 main {
-  .content-favorite:focus > .title>h2 {
+  button.skip-content.favorite {
+    @include touch-target.base-link();
+    @include touch-target.base-button();
+    @include placement.flex-layout(row, center, center, 0);
+    @include text.paragraph-text(
+      1rem,
+      600,
+      map-get(colors.$colors, "text-white")
+    );
+    background-color: map-get(colors.$colors, "secondary");
+    border-radius: 1.5rem;
+    position: fixed;
+    top: 0.25rem;
+    left: 0.5rem;
+    z-index: 0;
+    opacity: 0;
+    width: 65%;
+    padding: 0 10px;
+    @include shadow.box-shadow("md", map-get(colors.$colors, "text-regular"));
+    transition: all 0.3s ease-in-out;
+    // breakpoints
+    @include breakpoints.breakpoints("sm") {
+      width: 45%;
+    }
+    @include breakpoints.breakpoints("md") {
+      width: 40%;
+    }
+    @include breakpoints.breakpoints("lg") {
+      width: 25%;
+    }
+    @include breakpoints.breakpoints("xl") {
+      width: 20%;
+    }
+  }
+
+  button.skip-content:focus {
+    opacity: 1;
+    z-index: 9999;
+    border: 2px solid map-get(colors.$colors, "fourth");
+  }
+
+  .content-favorite:focus > .title > h2 {
     color: map-get(colors.$colors, "fourth");
     text-decoration: underline;
   }
+  
   section.content-favorite {
     @include placement.flex-layout(column, flex-start, center, 1rem);
     min-height: 640px;
@@ -22,47 +64,6 @@ main {
     // breakpoints
     @include breakpoints.breakpoints("lg") {
       padding: 5.5rem 1.75rem 2.5rem;
-    }
-
-    button.skip-content.favorite {
-      @include touch-target.base-link();
-      @include touch-target.base-button();
-      @include placement.flex-layout(row, center, center, 0);
-      @include text.paragraph-text(
-        1rem,
-        600,
-        map-get(colors.$colors, "text-white")
-      );
-      background-color: map-get(colors.$colors, "secondary");
-      border-radius: 1.5rem;
-      position: absolute;
-      top: 0.25rem;
-      left: .5rem;
-      z-index: 0;
-      opacity: 0;
-      width: 65%;
-      padding: 0 10px;
-      @include shadow.box-shadow("md", map-get(colors.$colors, "text-regular"));
-      transition: all 0.3s ease-in-out;
-      // breakpoints
-      @include breakpoints.breakpoints("sm") {
-        width: 45%;
-      }
-      @include breakpoints.breakpoints("md") {
-        width: 40%;
-      }
-      @include breakpoints.breakpoints("lg") {
-        width: 25%;
-      }
-      @include breakpoints.breakpoints("xl") {
-        width: 20%;
-      }
-    }
-
-    button.skip-content:focus {
-      opacity: 1;
-      z-index: 9999;
-      border: 2px solid map-get(colors.$colors, "fourth");
     }
 
     .note-data-empty {
