@@ -29,6 +29,52 @@ main {
     background-color: #ef4444;
   }
 
+  button.skip-content.detail {
+    @include touch-target.base-link();
+    @include touch-target.base-button();
+    @include placement.flex-layout(row, center, center, 0);
+    @include text.paragraph-text(
+      1rem,
+      600,
+      map-get(colors.$colors, "text-white")
+    );
+    background-color: map-get(colors.$colors, "secondary");
+    border-radius: 1.5rem;
+    position: fixed;
+    top: 0.25rem;
+    left: 0.5rem;
+    z-index: 0;
+    opacity: 0;
+    width: 65%;
+    padding: 0 10px;
+    @include shadow.box-shadow("md", map-get(colors.$colors, "text-regular"));
+    transition: all 0.3s ease-in-out;
+    // breakpoints
+    @include breakpoints.breakpoints("sm") {
+      width: 45%;
+    }
+    @include breakpoints.breakpoints("md") {
+      width: 40%;
+    }
+    @include breakpoints.breakpoints("lg") {
+      width: 25%;
+    }
+    @include breakpoints.breakpoints("xl") {
+      width: 20%;
+    }
+  }
+
+  button.skip-content.detail:focus {
+    opacity: 1;
+    z-index: 9999;
+    border: 2px solid map-get(colors.$colors, "fourth");
+  }
+
+  .container:focus > h2.detail-title {
+    color: map-get(colors.$colors, "detail");
+    text-decoration: underline;
+  }
+
   .container {
     background-color: map-get(colors.$colors, "background");
     padding: 5.25rem 1rem 3.5rem;

@@ -1,12 +1,13 @@
+import CONFIG from '../../global/config';
 import RestaurantResource from '../../data/get-restaurant-resource';
-import element from '../../utilities/get-element';
-import detailPageTemplate from '../templates/detail';
-import postReviewHandler from '../../utilities/post-review-handler';
 import urlParser from '../../routes/url-parser';
+import detailPageTemplate from '../templates/detail';
+import templateAnimation from '../templates/template-animation';
+import postReviewHandler from '../../utilities/post-review-handler';
+import element from '../../utilities/get-element';
 import showAlertAndToast from '../../utilities/show-alert';
 import FavoriteButtonDetailHandler from '../../utilities/favorite-button-detail-handler';
-import templateAnimation from '../templates/template-animation';
-import CONFIG from '../../global/config';
+import skipToMainContent from '../../utilities/skip-content-handler';
 
 const { getElement } = element;
 
@@ -16,13 +17,20 @@ const detailPage = {
     <button type="button" class="button-like-detail" title="Tambahkan ke favorit">
       <i class="fa-regular fa-heart heart-icon" aria-label="Icon Hati"></i>
     </button>
-      <section class="container">
+    <button type="button" class="skip-content detail" tabindex="1">Skip to content</button>
+
+      <section id="main-content-detail" class="container" tabindex="0">
         ${templateAnimation.skeletonDetail()}
       </section>
     `;
   },
 
   async _afterRender() {
+    skipToMainContent(
+      getElement('.skip-content.detail'),
+      getElement('#main-content-detail'),
+    );
+
     const getUrlId = urlParser._parseUrlWithoutJoinString().id;
     const container = getElement('.container');
     try {

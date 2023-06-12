@@ -44,7 +44,7 @@ main {
     }
   }
 
-  button.skip-content:focus {
+  button.skip-content.favorite:focus {
     opacity: 1;
     z-index: 9999;
     border: 2px solid map-get(colors.$colors, "fourth");
